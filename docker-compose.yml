@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    environment:
+      SOCRATA_APP_TOKEN: ${SOCRATA_APP_TOKEN:-}
+      EXTRACTION_START_DATE: ${EXTRACTION_START_DATE:-2023-01-01}
+      EXTRACTION_END_DATE_EXCLUSIVE: ${EXTRACTION_END_DATE_EXCLUSIVE:-2023-04-01}
+      MAX_ROWS_PER_FILE: ${MAX_ROWS_PER_FILE:-50000}
+      API_BATCH_SIZE: ${API_BATCH_SIZE:-5000}
+      RAW_DATA_DIR: ${RAW_DATA_DIR:-data/raw}
+      CATALOG_DIR: ${CATALOG_DIR:-data/catalog}
+    volumes:
+      - ./data:/app/data
